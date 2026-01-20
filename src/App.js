@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Nav from "./Nav";
 import Calendar from "./Calendar";
 import Footer from "./Footer";
 // import Day from "./Day";
+import OptionModal from './OptionModal';
 import {useState, useEffect } from "react";
 import { Routes, Route} from "react-router-dom";
 import About from "./About";
@@ -20,6 +21,16 @@ useEffect(() => {
   })
 }, [])
 
+ const [show, setShow] = useState(false);
+//  const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  function handleClose() {
+    setShow(false)
+  }
+
+  function handleShow() {
+    setShow(true)
+  }
 
 
 
@@ -28,14 +39,14 @@ useEffect(() => {
   return (
     <div className="App">
       <Nav items={items}></Nav>
-      {/* <h1>Orderly</h1> */}
-         {/* <Calendar></Calendar> */}
-
+     
          <Routes>
          <Route exact path="/" element={<About></About>}/>
-         <Route exact path="/calendar" element={<Calendar></Calendar>}/>
+         <Route exact path="/calendar" element={<Calendar handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
+        
          
         </Routes>
+        <OptionModal show={show} handleShow={handleShow} handleClose={handleClose}></OptionModal>
         
       <Footer></Footer>
     </div>
