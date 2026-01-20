@@ -46,7 +46,7 @@ useEffect(() => {
         
          
         </Routes>
-        <OptionModal show={show} handleShow={handleShow} handleClose={handleClose}></OptionModal>
+        <OptionModal items={items} show={show} handleShow={handleShow} handleClose={handleClose}></OptionModal>
         
       <Footer></Footer>
     </div>

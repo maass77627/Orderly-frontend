@@ -2,13 +2,13 @@ import React from "react";
 import {NavLink} from "react-router-dom"
 
 
-function Nav({items}) {
+function Nav({}) {
 
    
     return (
         <div className="nav">
          <h1>Orderly</h1>
-         {items.map((item) => <button key={item.id} className="nav-button">{item.category}</button>)}
+         {/* {items.map((item) => <button key={item.id} className="nav-button">{item.category}</button>)} */}
          
          <div className="link-wrapper">
          <NavLink className="link" to="/" >

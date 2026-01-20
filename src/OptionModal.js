@@ -2,34 +2,36 @@ import React from "react";
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Form from "./Form";
 
-function OptionModal({ handleClose, handleShow, show}) {
+function OptionModal({ handleClose, show, items}) {
+    const [showForm, setShowForm] = useState(false)
 
-//      const [show, setShow] = useState(false);
+function handleClick(item, e) {
+    console.log(e)
+    console.log(item)
+    setShowForm(!showForm)
 
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
+}
 
     return (
          <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Add to Calendar
-      </Button> */}
+      
 
       <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter"
       centered>
         <Modal.Header closeButton>
           <Modal.Title>Add an Event</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body> 
+            {items.map((item) => <button onClick={(e) => handleClick(item, e)} key={item.id} className="nav-button">{item.category}</button>)}
+        {showForm && <Form></Form>}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          
         </Modal.Footer>
       </Modal>
     </>
