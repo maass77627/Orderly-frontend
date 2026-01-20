@@ -7,8 +7,8 @@ function Calendar() {
 
     return (
         <div className="calendar">
-            <h1>Calendar</h1>
-            {daysOfTheWeek.map((day) => (<Day day={day}></Day>))}
+            <h1 className="cal-title">Calendar</h1>
+            {daysOfTheWeek.map((day) => (<Day key={day} day={day}></Day>))}
 
         </div>
     )
