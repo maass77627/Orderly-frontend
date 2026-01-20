@@ -6,10 +6,13 @@ import Form from "./Form";
 
 function OptionModal({ handleClose, show, items}) {
     const [showForm, setShowForm] = useState(false)
+    // const [showButtons, setShowButtons] = useState(true)
+    const [selectedItem, setSelectedItem] = useState("")
 
 function handleClick(item, e) {
     console.log(e)
     console.log(item)
+    setSelectedItem(item)
     setShowForm(!showForm)
 
 }
@@ -24,7 +27,7 @@ function handleClick(item, e) {
           <Modal.Title>Add an Event</Modal.Title>
         </Modal.Header>
         <Modal.Body> 
-            {items.map((item) => <button onClick={(e) => handleClick(item, e)} key={item.id} className="nav-button">{item.category}</button>)}
+            {!selectedItem && items.map((item) => <button onClick={(e) => handleClick(item, e)} key={item.id} className="nav-button">{item.category}</button>)}
         {showForm && <Form></Form>}
         </Modal.Body>
         <Modal.Footer>
