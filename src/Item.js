@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 
-function Item({item}) {
+function Item({item, items, setItems}) {
 console.log(item)
 const [toggle, setToggle] = useState(false)
 
@@ -11,6 +11,28 @@ function handleClick(e) {
     e.stopPropagation();
     setToggle(!toggle)
 
+}
+
+// function handleDelete(id) {
+//     fetch(`http://localhost:3000/items/${id}`, {
+//         method: "DELETE"
+    
+//     })
+//     let newItems = items.filter((item) => item.id !== id)
+//     setItems(newItems)
+
+// }
+
+function handleDelete(id) {
+  console.log("Deleting id:", id);
+
+  fetch(`http://localhost:3000/items/${id}`, {
+    method: "DELETE"
+  })
+  .then(() => {
+    setItems(items => items.filter(item => item.id !== id));
+  })
+  .catch(err => console.error("DELETE failed:", err));
 }
 
 
@@ -38,7 +60,7 @@ switch (item.category) {
 
     return (
         <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
-            <button id="delete">x</button>
+            <button onClick={() => handleDelete(item.id)} className="delete">x</button>
             <p>{item.title}</p>
             {toggle ? (
    

@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
-function Day({day, handleShow, items}) {
+function Day({day, handleShow, items, setItems}) {
     console.log(items)
     console.log(day)
 
@@ -14,7 +14,7 @@ function Day({day, handleShow, items}) {
             <h1>{day}</h1>
                      <button className="add-item-btn" onClick={() => handleShow(day)}>+ Add</button>
 
-            {filteredItems.length > 0 && filteredItems.map((item) => <Item item={item} key={item.id}></Item>)}
+            {filteredItems.length > 0 && filteredItems.map((item) => <Item items={items} setItems={setItems} item={item} key={item.id}></Item>)}
           
         </div>
     )

@@ -15,7 +15,7 @@ function clearWeek() {
         <div className="calendar">
             <h1 className="cal-title">Calendar</h1>
             <button className="clear" onClick={clearWeek}>Clear Week</button>
-            {daysOfTheWeek.map((day) => <Day day={day} items={items} handleClose={handleClose} handleShow={handleShow} key={day} ></Day>)}
+            {daysOfTheWeek.map((day) => <Day day={day} items={items} handleClose={handleClose} handleShow={handleShow} key={day} setItems={setItems} ></Day>)}
             
         </div>
     )

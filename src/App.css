@@ -122,6 +122,5 @@
 }
 
 .delete {
-  position: relative;
-  left: 200px;
+  margin-left: 150px;
 }
