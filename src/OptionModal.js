@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from "./Form";
 
-function OptionModal({ handleClose, show, items}) {
+function OptionModal({ handleClose, show, items, setItems}) {
+    console.log(items)
     const [showForm, setShowForm] = useState(false)
     // const [showButtons, setShowButtons] = useState(true)
     const [selectedItem, setSelectedItem] = useState("")
@@ -28,7 +29,7 @@ function handleClick(item, e) {
         </Modal.Header>
         <Modal.Body> 
             {!selectedItem && items.map((item) => <button onClick={(e) => handleClick(item, e)} key={item.id} className="nav-button">{item.category}</button>)}
-        {showForm && <Form></Form>}
+        {showForm && <Form items={items} setItems={setItems}></Form>}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

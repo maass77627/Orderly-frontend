@@ -32,6 +32,26 @@ useEffect(() => {
     setShow(true)
   }
 
+   function getEventDay(date) {
+     const [month, day, year] = date.split("-");
+  const newdate = new Date(year, month - 1, day);
+console.log(newdate.toLocaleDateString("en-US", {
+    weekday: "long"
+  }))
+  return newdate.toLocaleDateString("en-US", {
+    weekday: "long"
+  });
+    // console.log(date)
+    // console.log("inside of event day")
+    // // const [month, day, year] = date.split("/");
+    // let numbers = date.split("-")
+    //   console.log(numbers)
+    //   debugger
+    // //  return new Date(year, month - 1, day);
+
+
+   }
+
 
 
 
@@ -42,11 +62,11 @@ useEffect(() => {
      
          <Routes>
          <Route exact path="/" element={<About></About>}/>
-         <Route exact path="/calendar" element={<Calendar handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
+         <Route exact path="/calendar" element={<Calendar getEventDay={getEventDay} items={items} handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
         
          
         </Routes>
-        <OptionModal items={items} show={show} handleShow={handleShow} handleClose={handleClose}></OptionModal>
+        <OptionModal setItems={setItems} items={items} show={show} handleShow={handleShow} handleClose={handleClose}></OptionModal>
         
       <Footer></Footer>
     </div>

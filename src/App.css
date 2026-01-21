@@ -37,6 +37,10 @@
   border-radius: 25px;
 }
 
+.day:hover {
+  transform: translateY(-3)
+}
+
 /* .day:hover {
   transform: translateY(-9);
 } */
@@ -65,5 +69,17 @@
 .link {
   padding: 50px;
  
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  height: 50px;
+  width: 200px;
+  background-color: rgb(92, 65, 120);
 }
 
