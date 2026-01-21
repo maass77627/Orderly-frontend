@@ -11,7 +11,7 @@ function OptionModal({ handleClose, show, items, setItems}) {
     const [selectedItem, setSelectedItem] = useState("")
 
 function handleClick(item, e) {
-    console.log(e)
+    console.log(e.target.value)
     console.log(item)
     setSelectedItem(item)
     setShowForm(!showForm)

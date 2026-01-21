@@ -5,11 +5,8 @@ function Day({day, handleShow, items}) {
     console.log(items)
     console.log(day)
 
-    console.log("DAY:", day);
-   console.log("ALL ITEMS:", items);
-   console.log("ITEM DAYS:", items.map(i => i.day));
        let filteredItems = items.filter((item) => item.day === day)
-       console.log("FILTERED:", filteredItems);
+      
 
 
     return (

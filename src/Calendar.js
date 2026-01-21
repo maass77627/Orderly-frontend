@@ -6,12 +6,6 @@ function Calendar({handleClose, handleShow, items}) {
     console.log(items)
     const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-//    function getItemsForDay(day) {
-//     console.log(day)
-//     // debugger
-//     return items.filter(item => getEventDay(item.date) === day);
-    
-//   }
 
 
 

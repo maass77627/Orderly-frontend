@@ -7,9 +7,9 @@ function Nav({}) {
    
     return (
         <div className="nav">
-         <h1>Orderly</h1>
-         <img src="public\Orderly.png" alt="logo"></img>
-         {/* {items.map((item) => <button key={item.id} className="nav-button">{item.category}</button>)} */}
+         {/* <h1>Orderly</h1> */}
+         <img className="logo" src="/Orderly.png" alt="logo"></img>
+        
          
          <div className="link-wrapper">
          <NavLink className="link" to="/" >
