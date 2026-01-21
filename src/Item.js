@@ -38,6 +38,7 @@ switch (item.category) {
 
     return (
         <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
+            <button id="delete">x</button>
             <p>{item.title}</p>
             {toggle ? (
    
@@ -46,8 +47,8 @@ switch (item.category) {
        <p>{item.location}</p>
        <label className="label">Notes:</label>
        <p>{item.notes}</p>
-       <label className="label">Date:</label>
-       <p>{item.date}</p>
+       {/* <label className="label">Date:</label>
+       <p>{item.date}</p> */}
        <label className="label">Time:</label>
        <p>{item.time}</p>
        </div>

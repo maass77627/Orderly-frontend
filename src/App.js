@@ -38,7 +38,7 @@ useEffect(() => {
      
          <Routes>
          <Route exact path="/" element={<About></About>}/>
-         <Route exact path="/calendar" element={<Calendar  items={items} handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
+         <Route exact path="/calendar" element={<Calendar setItems={setItems}  items={items} handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
         
          
         </Routes>

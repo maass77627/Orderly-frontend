@@ -75,6 +75,15 @@ function Form({ setItems, items}) {
     return (
         <div className="form">
             <form onSubmit={(e) => handleSubmit(e)}>
+                <label>Category:</label><br></br>
+                <select value={formData.category} onChange={(e) => handleCategoryChange(e.target.value)}>
+                <option value="all">All</option>
+                <option value="appointment">Appointment</option>
+                <option value="workout">Workout</option>
+                <option value="meal">Meal</option>
+                <option value="event">Event</option>
+                <option value="meeting">Meeting</option>
+                </select>
                 <label>Title:</label><br></br>
                 <input onChange={(e) => handleTitleChange(e.target.value)} type="text" name="title" value={formData.title}></input><br></br>
                 <label>Time:</label><br></br>
@@ -89,9 +98,6 @@ function Form({ setItems, items}) {
                 <input onChange={(e) => handleNotesChange(e.target.value)} type="text" name="notes" value={formData.notes}></input><br></br>
                 <label>Duration:</label><br></br>
                 <input onChange={(e) => handleDurationChange(e.target.value)} type="text" name="duration" value={formData.duration}></input><br></br> 
-                <label>Category:</label><br></br>
-                <input onChange={(e) => handleCategoryChange(e.target.value)} type="text" name="category" value={formData.category}></input><br></br> 
-
                 <input type="submit" value="submit"></input>
             </form>
 

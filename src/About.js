@@ -5,7 +5,7 @@ function About() {
 
     return (
         <div className="about">
-         <h1>I am the Home</h1>
+         {/* <h1>I am the Home</h1> */}
          <img className="hero" src="calendar.jpg" alt="cal"></img>
         </div>
 

@@ -88,6 +88,7 @@
 }
 
 .item {
+  margin-top: 10px;
   border-radius: 15px;
   height: 50px;
   width: 200px;
@@ -112,6 +113,15 @@
 }
 
 .hero {
-  height: 400px;
+  height: 500px;
   width: 800px;
+}
+
+.clear {
+  height: 100px;
+}
+
+.delete {
+  position: relative;
+  left: 200px;
 }
