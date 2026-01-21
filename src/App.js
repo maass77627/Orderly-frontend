@@ -34,7 +34,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <Nav items={items}></Nav>
+      <Nav setItems={setItems} items={items}></Nav>
      
          <Routes>
          <Route exact path="/" element={<About></About>}/>

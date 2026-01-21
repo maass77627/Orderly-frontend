@@ -2,7 +2,11 @@ import React from "react";
 import {NavLink} from "react-router-dom"
 
 
-function Nav({}) {
+function Nav({setItems}) {
+
+    function clearWeek() {
+    setItems([])
+}
 
    
     return (
@@ -19,7 +23,7 @@ function Nav({}) {
          Calendar
          </NavLink>
          </div>
-
+          <button className="clear" onClick={clearWeek}>Clear Week</button>
         </div>
 
     )
