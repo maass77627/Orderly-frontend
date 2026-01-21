@@ -37,13 +37,17 @@
   border-radius: 25px;
 }
 
-.day:hover {
-  transform: translateY(-3)
+.day:hover{
+  
+  transform: translateX(4px);
+
 }
 
-/* .day:hover {
-  transform: translateY(-9);
-} */
+.label{
+  font-weight: bold;
+}
+
+
 
 .footer{
   height: 100px;
@@ -78,8 +82,26 @@
 }
 
 .item {
+  border-radius: 15px;
   height: 50px;
   width: 200px;
   background-color: rgb(92, 65, 120);
+}
+
+.item:hover{
+  
+  transform: translateX(4px);
+
+}
+
+.moreinfo {
+  background-color: white;
+  height: 200px;
+  width: 200px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  margin-left: 100px;
 }
 

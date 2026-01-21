@@ -1,9 +1,20 @@
 import React from "react";
+import { useState } from "react";
+
 
 function Item({item}) {
 console.log(item)
-let color 
+const [toggle, setToggle] = useState(false)
 
+
+function handleClick(e) {
+    e.stopPropagation();
+    setToggle(!toggle)
+
+}
+
+
+let color 
 switch (item.category) {
     case "appointment":
         color = "teal";
@@ -14,17 +25,34 @@ switch (item.category) {
             case "meal":
             color = "purple"
             break
+            case "event":
+            color = "orange"
+            break
+            case "meeting":
+            color = "yellow"
+            break
             default:
-                color = "gray"
+                color = "pink"
 }
 
+
     return (
-        <div style={{backgroundColor: `${color}`}} className="item">
+        <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
             <p>{item.title}</p>
-            {/* <p>{item.location}</p>
-            <p>{item.notes}</p>
-            <p>{item.date}</p>
-            <p>{item.time}</p> */}
+            {toggle ? (
+   
+       <div className="moreinfo">
+        <label className="label">Location:</label>
+       <p>{item.location}</p>
+       <label className="label">Notes:</label>
+       <p>{item.notes}</p>
+       <label className="label">Date:</label>
+       <p>{item.date}</p>
+       <label className="label">Time:</label>
+       <p>{item.time}</p>
+       </div>
+    
+       ) : null}
 
         </div>
     )

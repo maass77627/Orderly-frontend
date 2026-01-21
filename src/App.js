@@ -3,7 +3,6 @@ import './App.css';
 import Nav from "./Nav";
 import Calendar from "./Calendar";
 import Footer from "./Footer";
-// import Day from "./Day";
 import OptionModal from './OptionModal';
 import {useState, useEffect } from "react";
 import { Routes, Route} from "react-router-dom";
@@ -22,8 +21,7 @@ useEffect(() => {
 }, [])
 
  const [show, setShow] = useState(false);
-//  const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+
   function handleClose() {
     setShow(false)
   }
@@ -31,28 +29,6 @@ useEffect(() => {
   function handleShow() {
     setShow(true)
   }
-
-   function getEventDay(date) {
-     const [month, day, year] = date.split("-");
-  const newdate = new Date(year, month - 1, day);
-console.log(newdate.toLocaleDateString("en-US", {
-    weekday: "long"
-  }))
-  return newdate.toLocaleDateString("en-US", {
-    weekday: "long"
-  });
-    // console.log(date)
-    // console.log("inside of event day")
-    // // const [month, day, year] = date.split("/");
-    // let numbers = date.split("-")
-    //   console.log(numbers)
-    //   debugger
-    // //  return new Date(year, month - 1, day);
-
-
-   }
-
-
 
 
 
@@ -62,7 +38,7 @@ console.log(newdate.toLocaleDateString("en-US", {
      
          <Routes>
          <Route exact path="/" element={<About></About>}/>
-         <Route exact path="/calendar" element={<Calendar getEventDay={getEventDay} items={items} handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
+         <Route exact path="/calendar" element={<Calendar  items={items} handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
         
          
         </Routes>
