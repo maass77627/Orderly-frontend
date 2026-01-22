@@ -7,13 +7,19 @@ import Form from "./Form";
 function OptionModal({ handleClose, show, items, setItems}) {
     console.log(items)
     const [showForm, setShowForm] = useState(false)
-    // const [showButtons, setShowButtons] = useState(true)
-    const [selectedItem, setSelectedItem] = useState("")
+   
+    const [selectedCat, setSelectedCat] = useState("")
 
-function handleClick(item, e) {
+    let categories = ["Appointment", "Meal", "Event", "Meeting", "Workout", "Errand"]
+
+function handleClick(cat, e) {
+    console.log(e.target.parentNode)
+    let div = e.target.parentNode
+    div.classList.add("hidden")
+
     console.log(e.target.value)
-    console.log(item)
-    setSelectedItem(item)
+    console.log(cat)
+    setSelectedCat(cat)
     setShowForm(!showForm)
 
 }
@@ -28,8 +34,10 @@ function handleClick(item, e) {
           <Modal.Title>Add an Event</Modal.Title>
         </Modal.Header>
         <Modal.Body> 
-            {!selectedItem && items.map((item) => <button onClick={(e) => handleClick(item, e)} key={item.id} className="nav-button">{item.category}</button>)}
-        {showForm && <Form items={items} setItems={setItems}></Form>}
+            <div className="catbuttons" >
+            {!selectedCat && categories.map((cat) =>  <button onClick={(e, cat) => handleClick(cat, e)} key={cat} className="nav-button">{cat}</button>)}</div>
+           
+        {showForm && <Form showForm={showForm} setShowForm={setShowForm} items={items} setItems={setItems}></Form>}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

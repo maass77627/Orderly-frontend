@@ -125,3 +125,7 @@
 .delete {
   margin-left: 150px;
 }
+
+.hidden{
+  visibility: hidden;
+}

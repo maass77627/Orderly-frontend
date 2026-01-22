@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react";
 
 
-function Form({ setItems, items}) {
+function Form({ setItems, items, setShowForm, showForm}) {
     console.log(items)
 
     const [formData, setFormData] = useState({
@@ -52,8 +52,11 @@ function Form({ setItems, items}) {
     }
 
     function handleSubmit(e) {
+        console.log(e.target.remove)
         e.preventDefault()
-        console.log(e)
+        e.target.remove()
+        setShowForm(!showForm)
+        console.log(e.target)
         fetch("http://localhost:3000/items", {
             method: "POST",
             headers: {
@@ -91,7 +94,7 @@ function Form({ setItems, items}) {
                 <label>Day:</label><br></br>
                 <input onChange={(e) => handleDayChange(e.target.value)} type="text" id="day" name="day"  value={formData.day} ></input><br></br>
                <label>Completed:</label><br></br>
-                <input onChange={(e) => handleCompletedChange(e.target.checked)} type="radio" name="completed" checked={formData.completed}></input><br></br>
+                <input onChange={(e) => handleCompletedChange(e.target.checked)} type="checkbox" name="completed" checked={formData.completed}></input><br></br>
                 <label>Location:</label><br></br>
                 <input onChange={(e) => handleLocationChange(e.target.value)} type="text" name="location" value={formData.location}></input><br></br>
                 <label>Notes:</label><br></br>

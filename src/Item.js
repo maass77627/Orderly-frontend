@@ -13,26 +13,20 @@ function handleClick(e) {
 
 }
 
-// function handleDelete(id) {
-//     fetch(`http://localhost:3000/items/${id}`, {
-//         method: "DELETE"
-    
-//     })
-//     let newItems = items.filter((item) => item.id !== id)
-//     setItems(newItems)
 
-// }
 
-function handleDelete(id) {
+function handleDelete(e, id) {
+    e.stopPropagation()
   console.log("Deleting id:", id);
 
   fetch(`http://localhost:3000/items/${id}`, {
     method: "DELETE"
   })
-  .then(() => {
-    setItems(items => items.filter(item => item.id !== id));
-  })
-  .catch(err => console.error("DELETE failed:", err));
+  
+    let newItems = items.filter((item) => item.id !== id)
+    setItems(newItems)
+  
+
 }
 
 
@@ -60,8 +54,9 @@ switch (item.category) {
 
     return (
         <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
-            <button onClick={() => handleDelete(item.id)} className="delete">x</button>
-            <p>{item.title}</p>
+            <button onClick={(e) => handleDelete(e, item.id)} className="delete">x</button>
+           <strong><p>{item.title}</p></strong>
+            
             {toggle ? (
    
        <div className="moreinfo">
@@ -69,8 +64,6 @@ switch (item.category) {
        <p>{item.location}</p>
        <label className="label">Notes:</label>
        <p>{item.notes}</p>
-       {/* <label className="label">Date:</label>
-       <p>{item.date}</p> */}
        <label className="label">Time:</label>
        <p>{item.time}</p>
        </div>
