@@ -13,6 +13,38 @@ function handleClick(e) {
 
 }
 
+function handleIconChange(item) {
+    console.log(item.completed)
+    let id = item.id
+    let data
+    if (item.completed === true){
+        data = false
+    } else {
+        data = true
+    }
+
+    console.log(id)
+    console.log(data)
+   
+    fetch(`http://localhost:3000/items/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify({completed: data})
+    })
+    .then((response) => response.json())
+    .then((json) => { 
+        
+       let newItems = items.map((item) => item.id === id ? {...item, completed: data} : item)
+           console.log(newItems)
+        setItems(newItems)
+        console.log(json)
+    
+    })
+
+}
+
 
 
 function handleDelete(e, id) {
@@ -47,13 +79,18 @@ switch (item.category) {
             case "meeting":
             color = "yellow"
             break
+            case "errand":
+            color = "pink"
+            break
             default:
-                color = "pink"
+                color = "grey"
 }
 
 
     return (
         <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
+            <i onClick={() => handleIconChange(item)} style={{color: item.completed ? "green" : "red"}}  class="fa-solid fa-check"></i>
+           
             <button onClick={(e) => handleDelete(e, item.id)} className="delete">x</button>
            <strong><p>{item.title}</p></strong>
             
