@@ -14,7 +14,7 @@ function App() {
   const [show, setShow] = useState(false);
 
 useEffect(() => {
-  fetch("http://localhost:3000/items")
+  fetch(`${process.env.REACT_APP_API_URL}/items`)
   .then((response) => {
     if (response.ok){
       return response.json()
@@ -58,9 +58,7 @@ useEffect(() => {
          <Routes>
          <Route exact path="/" element={<About></About>}/>
          <Route exact path="/calendar" element={<Calendar setItems={setItems}  items={items} handleClose={handleClose} handleShow={handleShow}></Calendar>}/>
-        
-         
-        </Routes>
+         </Routes>
         <OptionModal setItems={setItems} items={items} show={show} handleShow={handleShow} handleClose={handleClose}></OptionModal>
         
       <Footer></Footer>

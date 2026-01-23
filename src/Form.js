@@ -19,9 +19,6 @@ function Form({ setItems, items, setShowForm, showForm}) {
     })
 
     function handleAllChange(e) {
-        console.log(e.target.name)
-        console.log(e.target.value)
-        console.log(e.target)
         let target = e.target 
         let name = e.target.name
         
@@ -35,38 +32,7 @@ function Form({ setItems, items, setShowForm, showForm}) {
 
     }
 
-    // function handleTitleChange(value) {
-    //     setFormData({...formData, title: value})
-
-    // }
-    // function handleLocationChange(value) {
-    //     setFormData({...formData, location: value})
-
-    // }
-    // function handleNotesChange(value) {
-    //     setFormData({...formData, notes: value})
-
-    // }
-    // function handleCompletedChange(value) {
-    //     setFormData({...formData, completed: value})
-
-    // }
-    // function handleTimeChange(value) {
-    //     setFormData({...formData, time: value})
-
-    // }
-    // function handleDayChange(value) {
-    //     setFormData({...formData, day: value})
-
-    // }
-    // function handleDurationChange(value) {
-    //     setFormData({...formData, duration: value})
-
-    // }
-    // function handleCategoryChange(value) {
-    //     setFormData({...formData, category: value})
-
-    // }
+    
 
     function handleSubmit(e) {
         console.log(e.target.remove)
@@ -112,6 +78,8 @@ function Form({ setItems, items, setShowForm, showForm}) {
                 <option name="meal" value="meal">Meal</option>
                 <option name="event" value="event">Event</option>
                 <option name="meeting" value="meeting">Meeting</option>
+                <option name="errand" value="errand">Errand</option>
+                <option name="task" value="task">Task</option>
                 </select><br></br>
                 <label>Title:</label><br></br>
                 <input onChange={(e) => handleAllChange(e)} type="text" name="title" value={formData.title}></input><br></br>

@@ -10,15 +10,11 @@ function OptionModal({ handleClose, show, items, setItems}) {
    
     const [selectedCat, setSelectedCat] = useState("")
 
-    let categories = ["Appointment", "Meal", "Event", "Meeting", "Workout", "Errand"]
+    let categories = ["Appointment", "Meal", "Event", "Meeting", "Workout", "Errand", "Task"]
 
 function handleClick(cat, e) {
-    console.log(e.target.parentNode)
     let div = e.target.parentNode
     div.classList.add("hidden")
-
-    console.log(e.target.value)
-    console.log(cat)
     setSelectedCat(cat)
     setShowForm(!showForm)
 

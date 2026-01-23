@@ -11,11 +11,8 @@ function Nav({setItems}) {
    
     return (
         <div className="nav">
-         {/* <h1>Orderly</h1> */}
          <img className="logo" src="/Orderly.png" alt="logo"></img>
-        
-         
-         <div className="link-wrapper">
+        <div className="link-wrapper">
          <NavLink className="link" to="/" >
          Home
          </NavLink>
