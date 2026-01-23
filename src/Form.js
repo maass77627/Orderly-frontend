@@ -40,7 +40,7 @@ function Form({ setItems, items, setShowForm, showForm}) {
         e.target.remove()
         setShowForm(!showForm)
         console.log(e.target)
-        fetch("http://localhost:3000/items", {
+        fetch(`${process.env.REACT_APP_API_URL}/items`, {
             method: "POST",
             headers: {
              "Content-Type": "application/json"

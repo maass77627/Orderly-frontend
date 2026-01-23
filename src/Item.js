@@ -27,7 +27,7 @@ function handleIconChange(e, item) {
     console.log(id)
     console.log(data)
    
-    fetch(`http://localhost:3000/items/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/items/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
@@ -61,7 +61,7 @@ function handleDelete(e, id) {
     e.stopPropagation()
   console.log("Deleting id:", id);
 
-  fetch(`http://localhost:3000/items/${id}`, {
+  fetch(`${process.env.REACT_APP_API_URL}/items/${id}`, {
     method: "DELETE"
   })
   .then((response) => {
