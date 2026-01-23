@@ -22,16 +22,16 @@ function Form({ setItems, items, setShowForm, showForm}) {
         console.log(e.target.name)
         console.log(e.target.value)
         console.log(e.target)
-        // let target = e.target 
-        // let name = e.target.name
+        let target = e.target 
+        let name = e.target.name
         
-        // if (target === "checked") {
-        //     let value = e.target.checked
-        //    setFormData({...formData, [name]: value})
-        // } else {
-        //     let value = e.target.value
-        //    setFormData({...formData, [name]: value})
-        //  }
+        if (target === "checked") {
+            let value = e.target.checked
+           setFormData({...formData, [name]: value})
+        } else {
+            let value = e.target.value
+           setFormData({...formData, [name]: value})
+         }
 
     }
 
@@ -105,7 +105,7 @@ function Form({ setItems, items, setShowForm, showForm}) {
         <div className="form">
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>Category:</label><br></br>
-                <select name="category" value={formData.category} onChange={(e) => handleAllChange(e.target.value)}>
+                <select name="category" value={formData.category} onChange={(e) => handleAllChange(e)}>
                 <option name="all" value="all">All</option>
                 <option name="appointment" value="appointment">Appointment</option>
                 <option name="workout" value="workout">Workout</option>
