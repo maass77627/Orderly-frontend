@@ -61,9 +61,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Frontend: https://visionary-empanada-1e3f63.netlify.app  
+Backend: https://orderly-backend-iy3h.onrender.com
+
+The frontend is deployed using Netlify and the backend API is deployed using Render.
 
 ### `npm run build` fails to minify
 
