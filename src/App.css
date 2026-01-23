@@ -19,7 +19,7 @@
 }
 
 .calendar {
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
   background-color: cadetblue;
   display: flex;
@@ -33,8 +33,10 @@
 }
 
 .day{
-  width: 300px;
-  height: 600px;
+  width: auto;
+  height: auto;
+  /* width: 300px;
+  height: 600px; */
   background-color: rgb(202, 202, 214);
   border-color: black;
   border-style: solid;
