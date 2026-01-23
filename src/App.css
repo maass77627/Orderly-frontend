@@ -119,8 +119,8 @@
 .hero {
   max-width: 100%;
   height: auto;
-  /* height: 500px;
-  width: 800px; */
+  height: 500px;
+  width: 800px; 
 }
 
 .clear {
