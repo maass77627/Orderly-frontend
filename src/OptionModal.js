@@ -28,7 +28,7 @@ function handleClick(cat, e) {
          <>
       
 
-      <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter"
+      <Modal size="md" show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter"
       centered>
         <Modal.Header closeButton>
           <Modal.Title>Add an Event</Modal.Title>

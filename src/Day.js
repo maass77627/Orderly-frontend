@@ -2,8 +2,7 @@ import React from "react";
 import Item from "./Item";
 
 function Day({day, handleShow, items, setItems}) {
-    console.log(items)
-    console.log(day)
+    
 
        let filteredItems = items.filter((item) => item.day === day)
       

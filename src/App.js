@@ -10,17 +10,28 @@ import About from "./About";
 
 function App() {
   const [items, setItems] = useState([])
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [show, setShow] = useState(false);
 
 useEffect(() => {
   fetch("http://localhost:3000/items")
-  .then((response) => response.json())
+  .then((response) => {
+    if (response.ok){
+      return response.json()
+    } else {
+      throw new Error("the request failed")
+    }})
   .then((json) => {
-    console.log(json)
+    setErrorMessage(null)
     setItems(json)
+  })
+  .catch((error) => {
+    console.error(error)
+    setErrorMessage("Events couldnt be loaded")
   })
 }, [])
 
- const [show, setShow] = useState(false);
+ 
 
   function handleClose() {
     setShow(false)
@@ -28,6 +39,14 @@ useEffect(() => {
 
   function handleShow() {
     setShow(true)
+  }
+
+  if (errorMessage !== null){
+    return (
+      <div>
+        <p>{errorMessage}</p>
+      </div>
+    )
   }
 
 

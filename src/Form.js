@@ -65,10 +65,19 @@ function Form({ setItems, items, setShowForm, showForm}) {
             body: JSON.stringify(formData)
 
         })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) {
+           return response.json()
+            }
+           throw new Error("Could not complete request")
+        })
         .then((json) => {
             console.log(json)
             setItems([...items, json])
+        })
+        .catch((error) => {
+            console.error(error)
+            alert("Request Failed, Try again")
         })
 
 
@@ -86,7 +95,7 @@ function Form({ setItems, items, setShowForm, showForm}) {
                 <option value="meal">Meal</option>
                 <option value="event">Event</option>
                 <option value="meeting">Meeting</option>
-                </select>
+                </select><br></br>
                 <label>Title:</label><br></br>
                 <input onChange={(e) => handleTitleChange(e.target.value)} type="text" name="title" value={formData.title}></input><br></br>
                 <label>Time:</label><br></br>

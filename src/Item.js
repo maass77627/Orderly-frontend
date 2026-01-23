@@ -13,7 +13,8 @@ function handleClick(e) {
 
 }
 
-function handleIconChange(item) {
+function handleIconChange(e, item) {
+    e.stopPropagation()
     console.log(item.completed)
     let id = item.id
     let data
@@ -33,7 +34,12 @@ function handleIconChange(item) {
         }, 
         body: JSON.stringify({completed: data})
     })
-    .then((response) => response.json())
+    .then((response) => {
+        if (response.ok){
+       return response.json()
+        }
+      throw new Error("Failed to update")
+    })
     .then((json) => { 
         
        let newItems = items.map((item) => item.id === id ? {...item, completed: data} : item)
@@ -41,6 +47,10 @@ function handleIconChange(item) {
         setItems(newItems)
         console.log(json)
     
+    })
+    .catch((error) => {
+        console.error(error)
+        alert("The item could not be patched")
     })
 
 }
@@ -54,9 +64,21 @@ function handleDelete(e, id) {
   fetch(`http://localhost:3000/items/${id}`, {
     method: "DELETE"
   })
-  
-    let newItems = items.filter((item) => item.id !== id)
+  .then((response) => {
+    if (response.ok) {
+       let newItems = items.filter((item) => item.id !== id)
     setItems(newItems)
+    }
+    throw new Error("Could not delete item")
+  })
+  .catch((error) => {
+    console.error(error)
+    alert("could not complete delete request, please try again")
+  })
+  
+  
+    // let newItems = items.filter((item) => item.id !== id)
+    // setItems(newItems)
   
 
 }
@@ -89,7 +111,7 @@ switch (item.category) {
 
     return (
         <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
-            <i onClick={() => handleIconChange(item)} style={{color: item.completed ? "green" : "red"}}  class="fa-solid fa-check"></i>
+            <i onClick={(e) => handleIconChange(e, item)} style={{color: item.completed ? "green" : "red"}}  class="fa-solid fa-check"></i>
            
             <button onClick={(e) => handleDelete(e, item.id)} className="delete">x</button>
            <strong><p>{item.title}</p></strong>
