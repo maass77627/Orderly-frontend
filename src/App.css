@@ -123,11 +123,11 @@
 }
 
 .clear {
-  position: absolute;
-  margin-left: 1000px;
+  /* position: absolute; */
+  /* margin-left: 1000px; */
   /* align-self: flex-end; */
-  height: 50px;
-  width: 200px;
+  height: auto;
+  /* width: 200px; */
 }
 
 .delete {
