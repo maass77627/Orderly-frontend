@@ -18,38 +18,55 @@ function Form({ setItems, items, setShowForm, showForm}) {
 
     })
 
-    function handleTitleChange(value) {
-        setFormData({...formData, title: value})
+    function handleAllChange(e) {
+        console.log(e.target.name)
+        console.log(e.target.value)
+        console.log(e.target)
+        // let target = e.target 
+        // let name = e.target.name
+        
+        // if (target === "checked") {
+        //     let value = e.target.checked
+        //    setFormData({...formData, [name]: value})
+        // } else {
+        //     let value = e.target.value
+        //    setFormData({...formData, [name]: value})
+        //  }
 
     }
-    function handleLocationChange(value) {
-        setFormData({...formData, location: value})
 
-    }
-    function handleNotesChange(value) {
-        setFormData({...formData, notes: value})
+    // function handleTitleChange(value) {
+    //     setFormData({...formData, title: value})
 
-    }
-    function handleCompletedChange(value) {
-        setFormData({...formData, completed: value})
+    // }
+    // function handleLocationChange(value) {
+    //     setFormData({...formData, location: value})
 
-    }
-    function handleTimeChange(value) {
-        setFormData({...formData, time: value})
+    // }
+    // function handleNotesChange(value) {
+    //     setFormData({...formData, notes: value})
 
-    }
-    function handleDayChange(value) {
-        setFormData({...formData, day: value})
+    // }
+    // function handleCompletedChange(value) {
+    //     setFormData({...formData, completed: value})
 
-    }
-    function handleDurationChange(value) {
-        setFormData({...formData, duration: value})
+    // }
+    // function handleTimeChange(value) {
+    //     setFormData({...formData, time: value})
 
-    }
-    function handleCategoryChange(value) {
-        setFormData({...formData, category: value})
+    // }
+    // function handleDayChange(value) {
+    //     setFormData({...formData, day: value})
 
-    }
+    // }
+    // function handleDurationChange(value) {
+    //     setFormData({...formData, duration: value})
+
+    // }
+    // function handleCategoryChange(value) {
+    //     setFormData({...formData, category: value})
+
+    // }
 
     function handleSubmit(e) {
         console.log(e.target.remove)
@@ -88,28 +105,28 @@ function Form({ setItems, items, setShowForm, showForm}) {
         <div className="form">
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>Category:</label><br></br>
-                <select value={formData.category} onChange={(e) => handleCategoryChange(e.target.value)}>
-                <option value="all">All</option>
-                <option value="appointment">Appointment</option>
-                <option value="workout">Workout</option>
-                <option value="meal">Meal</option>
-                <option value="event">Event</option>
-                <option value="meeting">Meeting</option>
+                <select name="category" value={formData.category} onChange={(e) => handleAllChange(e.target.value)}>
+                <option name="all" value="all">All</option>
+                <option name="appointment" value="appointment">Appointment</option>
+                <option name="workout" value="workout">Workout</option>
+                <option name="meal" value="meal">Meal</option>
+                <option name="event" value="event">Event</option>
+                <option name="meeting" value="meeting">Meeting</option>
                 </select><br></br>
                 <label>Title:</label><br></br>
-                <input onChange={(e) => handleTitleChange(e.target.value)} type="text" name="title" value={formData.title}></input><br></br>
+                <input onChange={(e) => handleAllChange(e)} type="text" name="title" value={formData.title}></input><br></br>
                 <label>Time:</label><br></br>
-                <input onChange={(e) => handleTimeChange(e.target.value)} type="time" id="time" name="time" value={formData.time} required></input><br></br>
+                <input onChange={(e) => handleAllChange(e)} type="time" id="time" name="time" value={formData.time} required></input><br></br>
                 <label>Day:</label><br></br>
-                <input onChange={(e) => handleDayChange(e.target.value)} type="text" id="day" name="day"  value={formData.day} ></input><br></br>
+                <input onChange={(e) => handleAllChange(e)} type="text" id="day" name="day"  value={formData.day} ></input><br></br>
                <label>Completed:</label><br></br>
-                <input onChange={(e) => handleCompletedChange(e.target.checked)} type="checkbox" name="completed" checked={formData.completed}></input><br></br>
+                <input onChange={(e) => handleAllChange(e)} type="checkbox" name="completed" checked={formData.completed}></input><br></br>
                 <label>Location:</label><br></br>
-                <input onChange={(e) => handleLocationChange(e.target.value)} type="text" name="location" value={formData.location}></input><br></br>
+                <input onChange={(e) => handleAllChange(e)} type="text" name="location" value={formData.location}></input><br></br>
                 <label>Notes:</label><br></br>
-                <input onChange={(e) => handleNotesChange(e.target.value)} type="text" name="notes" value={formData.notes}></input><br></br>
+                <input onChange={(e) => handleAllChange(e)} type="text" name="notes" value={formData.notes}></input><br></br>
                 <label>Duration:</label><br></br>
-                <input onChange={(e) => handleDurationChange(e.target.value)} type="text" name="duration" value={formData.duration}></input><br></br> 
+                <input onChange={(e) => handleAllChange(e)} type="text" name="duration" value={formData.duration}></input><br></br> 
                 <input type="submit" value="submit"></input>
             </form>
 
