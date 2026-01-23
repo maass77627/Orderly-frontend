@@ -19,7 +19,8 @@
 }
 
 .calendar {
-  height: 700px;
+  max-width: 100%;
+  height: auto;
   background-color: cadetblue;
   display: flex;
   justify-content: space-around;
