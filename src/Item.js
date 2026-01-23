@@ -58,29 +58,22 @@ function handleIconChange(e, item) {
 
 
 function handleDelete(e, id) {
-    e.stopPropagation()
-  console.log("Deleting id:", id);
+  e.stopPropagation();
+  
 
   fetch(`${process.env.REACT_APP_API_URL}/items/${id}`, {
-    method: "DELETE"
+    method: "DELETE",
   })
-  .then((response) => {
-    if (response.ok) {
-       let newItems = items.filter((item) => item.id !== id)
-    setItems(newItems)
-    }
-    throw new Error("Could not delete item")
-  })
-  .catch((error) => {
-    console.error(error)
-    alert("could not complete delete request, please try again")
-  })
-  
-  
-    // let newItems = items.filter((item) => item.id !== id)
-    // setItems(newItems)
-  
-
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Could not delete item");
+      }
+      setItems((items) => items.filter((item) => item.id !== id));
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("could not complete delete request, please try again");
+    });
 }
 
 
