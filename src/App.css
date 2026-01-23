@@ -12,7 +12,7 @@
 }
 
 .nav {
-  height: auto;
+  height: 200px;
   background-color: rgb(32, 103, 94);
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 }
 
 .calendar {
-  /* max-width: 100%; */
+   max-width: 100%; 
   height: auto;
   background-color: cadetblue;
   display: flex;
