@@ -102,7 +102,7 @@
 .item {
   margin-top: 10px;
   border-radius: 15px;
-  height: auto;
+  height: 50px;
   width: 100%;
   background-color: rgb(92, 65, 120);
 }
