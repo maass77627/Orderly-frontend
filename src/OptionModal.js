@@ -29,9 +29,10 @@ function handleClick(cat, e) {
         <Modal.Header closeButton>
           <Modal.Title>Add an Event</Modal.Title>
         </Modal.Header>
-        <Modal.Body> 
+        <Modal.Body className="modal-body"> 
             <div className="catbuttons" >
-            {!selectedCat && categories.map((cat) =>  <button onClick={(e, cat) => handleClick(cat, e)} key={cat} className="nav-button">{cat}</button>)}</div>
+            {!selectedCat && categories.map((cat) =>  <button onClick={(e, cat) => handleClick(cat, e)} key={cat} className="nav-button">{cat}</button>)}
+            </div>
            
         {showForm && <Form showForm={showForm} setShowForm={setShowForm} items={items} setItems={setItems}></Form>}
         </Modal.Body>

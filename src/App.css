@@ -5,6 +5,12 @@
   
 }
 
+.modal-body {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo{
   position: absolute;
   height: 300px;
