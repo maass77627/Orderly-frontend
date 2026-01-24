@@ -2,7 +2,7 @@
   text-align: center;
   background-color: rgb(64, 176, 139);
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 .modal-body {
