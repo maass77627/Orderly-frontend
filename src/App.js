@@ -8,13 +8,17 @@ import {useState, useEffect } from "react";
 import { Routes, Route} from "react-router-dom";
 import About from "./About";
 
+import API_BASE_URL from "./Api";
+
+
+
 function App() {
   const [items, setItems] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
   const [show, setShow] = useState(false);
 
 useEffect(() => {
-  fetch(`${process.env.REACT_APP_API_URL}/items`)
+  fetch(`${API_BASE_URL}/items`)
   .then((response) => {
     if (response.ok){
       return response.json()

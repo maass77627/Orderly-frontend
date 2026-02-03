@@ -12,7 +12,9 @@ function Calendar({handleClose, handleShow, items, setItems}) {
     return (
         <div className="calendar">
             <h1 className="cal-title">My Week</h1>
+            <div className="day-wrapper">
             {daysOfTheWeek.map((day) => <Day day={day} items={items} handleClose={handleClose} handleShow={handleShow} key={day} setItems={setItems} ></Day>)}
+            </div>
         </div>
     )
 }

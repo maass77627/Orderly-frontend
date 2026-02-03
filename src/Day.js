@@ -1,7 +1,9 @@
 import React from "react";
 import Item from "./Item";
 
+
 function Day({day, handleShow, items, setItems}) {
+   
     
 
        let filteredItems = items.filter((item) => item.day === day)
@@ -9,6 +11,7 @@ function Day({day, handleShow, items, setItems}) {
 
 
     return (
+
         <div  className="day">
             <h1>{day}</h1>
                      <button className="add-item-btn" onClick={() => handleShow(day)}>+ Add</button>

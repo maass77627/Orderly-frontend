@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from "./Form";
 
+
 function OptionModal({ handleClose, show, items, setItems}) {
     console.log(items)
     const [showForm, setShowForm] = useState(false)
@@ -11,6 +12,9 @@ function OptionModal({ handleClose, show, items, setItems}) {
     const [selectedCat, setSelectedCat] = useState("")
 
     let categories = ["Appointment", "Meal", "Event", "Meeting", "Workout", "Errand", "Task"]
+
+     
+
 
 function handleClick(cat, e) {
     let div = e.target.parentNode
@@ -21,18 +25,18 @@ function handleClick(cat, e) {
 }
 
     return (
-         <>
+         
       
-
+      
       <Modal size="md" show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter"
       centered>
         <Modal.Header closeButton>
           <Modal.Title>Add an Event</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body"> 
-            <div className="catbuttons" >
+            {/* <div className="catbuttons" >
             {!selectedCat && categories.map((cat) =>  <button onClick={(e, cat) => handleClick(cat, e)} key={cat} className="nav-button">{cat}</button>)}
-            </div>
+            </div> */}
            
         {showForm && <Form showForm={showForm} setShowForm={setShowForm} items={items} setItems={setItems}></Form>}
         </Modal.Body>
@@ -43,7 +47,7 @@ function handleClick(cat, e) {
           
         </Modal.Footer>
       </Modal>
-    </>
+      
 
 
     )

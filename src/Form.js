@@ -1,5 +1,6 @@
 import React from "react";
 import {useState} from "react";
+import API_BASE_URL from "./Api";
 
 
 function Form({ setItems, items, setShowForm, showForm}) {
@@ -40,7 +41,7 @@ function Form({ setItems, items, setShowForm, showForm}) {
         e.target.remove()
         setShowForm(!showForm)
         console.log(e.target)
-        fetch(`${process.env.REACT_APP_API_URL}/items`, {
+        fetch(`${API_BASE_URL}/items`, {
             method: "POST",
             headers: {
              "Content-Type": "application/json"

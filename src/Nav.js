@@ -11,15 +11,16 @@ function Nav({setItems}) {
    
     return (
         <div className="nav">
-         <img className="logo" src="/Orderly.png" alt="logo"></img>
-        <div className="link-wrapper">
+        
+        
          <NavLink className="link" to="/" >
          Home
          </NavLink>
+          <img className="logo" src="/Orderly.png" alt="logo"></img>
          <NavLink className="link" to="/calendar" >
          Calendar
          </NavLink>
-         </div>
+         
           <button className="clear" onClick={clearWeek}>Clear Week</button>
         </div>
 

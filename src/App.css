@@ -1,9 +1,9 @@
 .App {
   text-align: center;
-  background-color: rgb(64, 176, 139);
+  background-color: rgb(175, 212, 200);
   margin: 0;
    min-height: 100vh;
-  /* padding: 0; */
+  
 }
 
 .modal-body {
@@ -14,45 +14,52 @@
 }
 
 .logo{
-  position: absolute;
-  height: 300px;
-  width: 300px;
+  height: auto;
+  max-width: 200px;
+  width: 100%;
+  
 }
 
 .nav {
-  height: 200px;
-  background-color: rgb(32, 103, 94);
+  height: 150px;
+  background-color: rgb(83, 224, 221);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .calendar {
-   max-width: 100%; 
+  /* display: flex; */
+  
+  
+  
+}
+
+.day-wrapper {
+  max-width: 100%; 
   height: auto;
   background-color: cadetblue;
   display: flex;
   justify-content: space-around;
-  
+
 }
+
 .cal-title {
-  position: absolute;
-  margin-top: 50px;
+  margin: 0 auto;
+  transform: translateX(-50px);
   color: rgb(0, 6, 0);
 }
 
 .day{
+  max-width: 400px;
    width: 100%; 
    height: auto; 
-  /* width: 300px; */
-  /* height: 600px;  */
-  background-color: rgb(202, 202, 214);
-  border-color: black;
-  border-style: solid;
-  border-width: 5px;
-  margin-left: 10px;
-  margin-top: 100px;
-  border-radius: 25px;
+   background-color: rgb(202, 202, 214);
+   border-color: black;
+   border-style: solid;
+   border-width: 5px;
+   padding: 10px;
+   border-radius: 25px;
 }
 
 .day:hover{
@@ -75,21 +82,18 @@
 .nav-button {
   border-radius: 25px;
   height: 50px;
-  width: 130px;
+  max-width: 130px;
+  width: 100%;
   background-color: rgb(92, 65, 120);
   font-weight: bold;
   padding: 20px;
-  margin-left: 10px;
+ 
 }
 
-.link-wrapper {
-  position: absolute;
-  margin-top: 125px;
-  /* margin-left: 50px; */
-}
+
 
 .link {
-  padding: 100px;
+  padding: 10px;
  
 }
 
@@ -100,11 +104,20 @@
 }
 
 .item {
-  margin-top: 10px;
+  display:flex;
+   gap: 10px;
+   justify-content: space-between;
+  
   border-radius: 15px;
   height: 50px;
   width: 100%;
   background-color: rgb(92, 65, 120);
+}
+
+.delete {
+  
+  background-color: aquamarine;
+  /* border-radius: 50%; */
 }
 
 .item:hover{
@@ -132,18 +145,11 @@
 }
 
 .clear {
-   position: absolute; 
-   margin-left: 1000px; 
-   align-self: flex-end; 
-  height: auto;
- width: 200px; 
+   
+   
 }
 
-.delete {
-  margin-left: 150px;
-  background-color: aquamarine;
-  border-radius: 50%;
-}
+
 
 .hidden{
   visibility: hidden;

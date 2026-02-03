@@ -1,17 +1,32 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import API_BASE_URL from "./Api";
 
 
 function Item({item, items, setItems}) {
 console.log(item)
-const [toggle, setToggle] = useState(false)
+// const [toggle, setToggle] = useState(false)
+
+ const popover = (
+    <Popover id="popover-basic">
+      <Popover.Header as="h3">Details</Popover.Header>
+      <Popover.Body>
+         {/* <div className="moreinfo"> */}
+        <label className="label">Location:</label>
+       <p>{item.location}</p>
+       <label className="label">Notes:</label>
+       <p>{item.notes}</p>
+       <label className="label">Time:</label>
+       <p>{item.time}</p>
+       {/* </div> */}
+        
+      </Popover.Body>
+    </Popover>
+  );
 
 
-function handleClick(e) {
-    e.stopPropagation();
-    setToggle(!toggle)
-
-}
 
 function handleIconChange(e, item) {
     e.stopPropagation()
@@ -27,7 +42,7 @@ function handleIconChange(e, item) {
     console.log(id)
     console.log(data)
    
-    fetch(`${process.env.REACT_APP_API_URL}/items/${id}`, {
+    fetch(`${API_BASE_URL}/items/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
@@ -61,7 +76,7 @@ function handleDelete(e, id) {
   e.stopPropagation();
   
 
-  fetch(`${process.env.REACT_APP_API_URL}/items/${id}`, {
+  fetch(`${API_BASE_URL}/items/${id}`, {
     method: "DELETE",
   })
     .then((response) => {
@@ -101,28 +116,20 @@ switch (item.category) {
                 color = "grey"
 }
 
-
+// onClick={(e) => handleClick(e)}
     return (
-        <div onClick={(e) => handleClick(e)} style={{backgroundColor: `${color}`}} className="item">
+        <>
+         <OverlayTrigger trigger={['hover', 'focus']} placement="right" overlay={popover} rootClose>
+        <div  style={{backgroundColor: `${color}`}} className="item">
             <i onClick={(e) => handleIconChange(e, item)} style={{color: item.completed ? "green" : "red"}}  class="fa-solid fa-check"></i>
            
-            <button onClick={(e) => handleDelete(e, item.id)} className="delete">x</button>
-           <strong><p>{item.title}</p></strong>
             
-            {toggle ? (
-   
-       <div className="moreinfo">
-        <label className="label">Location:</label>
-       <p>{item.location}</p>
-       <label className="label">Notes:</label>
-       <p>{item.notes}</p>
-       <label className="label">Time:</label>
-       <p>{item.time}</p>
-       </div>
-    
-       ) : null}
+           <strong><p>{item.title}</p></strong>
+           <button onClick={(e) => handleDelete(e, item.id)} className="delete">x</button>
 
         </div>
+        </OverlayTrigger>
+        </>
     )
 }
 
